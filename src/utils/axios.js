@@ -1,7 +1,7 @@
-import axios from "axios";
+import axios from 'axios'
 
 const instance = axios.create({
-    baseUrl: "https://readit-backend.herouapp.com"
+    baseURL: "https://readit-backend.herokuapp.com"
 })
 
-export default instance;
+export default instance

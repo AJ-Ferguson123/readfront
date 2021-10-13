@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { NavLink,useHistory } from "react-router-dom";
 import { connect } from "react-redux";
+import { logUserOut, toggleLogin, getPosts, getSubs } from "../action/index";
 import axios from "axios";
 
 

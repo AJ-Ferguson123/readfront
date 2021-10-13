@@ -5,7 +5,7 @@ import axios from "../utils/axios";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 import Sidebar from "./Sidebar";
 import Comments from "./Comments";
-import { checkedLoggedIn } from "../utils/checkLoggedIn";
+import { checkLoggedIn } from "../utils/checkLoggedIn";
 import { upVoteSinglePost, downVoteSinglePost, setSinglePost, setComments, deletePost, upVotePost } from "../action/index";
 
 function Post(props) {
@@ -19,7 +19,7 @@ function Post(props) {
     useEffect(() => {
         async function fetchData() {
             try {
-                const rePost = await axios.get(`/api/post/${id}`)
+                const resPost = await axios.get(`/api/post/${id}`)
                 props.setSinglePost(resPost.data)
                 const resComments = await axios.get(`/api/post/${id}/comments`)
                 props.setComments(resComments.data)
@@ -31,18 +31,18 @@ function Post(props) {
         fetchData()
     }, [])
     const upVoteHandler = (post_id) => {
-        if(checkedLoggedIn()) {
+        if(checkLoggedIn()) {
             props.upVoteSinglePost(post_id)
             props.upVotePost(post_id)
             axios.put(`/api/post/upvote/${post_id}`)
                 .then(res => console.log(res))
-                .catch(res => console.log(err))
+                .catch(err => console.log(err))
         }
         else
         history.push(`/login`)
     }
     const downVoteHandler = (post_id, post_likes) => {
-        if (checkedLoggedIn()) {
+        if (checkLoggedIn()) {
             if (post_likes <=0)
             return
             props.downVoteSinglePost(post_id)

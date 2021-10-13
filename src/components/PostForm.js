@@ -23,7 +23,7 @@ function PostForm(props) {
             return
         })
         //looks to see if post is valid
-        if (tempSub.length && posttitle && post.body) {
+        if (tempSub.length && post.title && post.body) {
             const tempId = localStorage.getItem('user_id')
             const tempPost = {...post, subreadit_id: tempPost[0].id, user_id: tempId}
             fetchData(tempPost)

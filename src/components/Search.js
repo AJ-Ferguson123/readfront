@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { connect } from "react-redux";
-import { axios } from "../utils/axios";
+import axios from "../utils/axios";
 import {searchPost, getPosts} from "../action/index"
 
 function Search(props) {

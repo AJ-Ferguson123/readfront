@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "../utils/axios";
 import { useHistory } from "react-router-dom";
 import { connect } from "react-redux";
+import { logUserIn } from "../action/index";
 
 
 const initialUser = {

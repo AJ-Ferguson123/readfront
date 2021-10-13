@@ -80,7 +80,7 @@ export const toggleLogin = () => {
         type: "TOGGLE_LOGIN",
     }
 }
-export const searchPosts = (string) => {
+export const searchPost = (string) => {
     return {
         type: "SEARCH_POSTS",
         payload: string
